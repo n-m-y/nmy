@@ -25,7 +25,7 @@
 
 4.创建虚拟环境
 
-```
+```bash
 # 创建虚拟环境
 conda create -n yolo_env python==3.10
 # 激活环境 conda env list 查看所有的虚拟环境
