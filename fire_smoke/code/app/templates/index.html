@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>火灾智能检测系统</title>
+    <link rel="stylesheet" href="../static/styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>火灾智能检测系统</h1>
+            <p class="subtitle">上传图片，获取分析结果</p>
+        </div>
+    </header>
+    
+    <main>
+
+        <div class="mode-switch">
+            <button class="mode-btn active" id="image-mode-btn">图片检测</button>
+            <button class="mode-btn" id="video-mode-btn">视频检测</button>
+        </div>
+        <section class="card">
+            <div class="upload-area" id="upload-area">
+                <p class="upload-text">点击或拖拽图片到此处上传</p>
+                <p class="upload-subtext">支持 JPG、PNG、JPEG 格式，最大 10MB，图片必须完好无损</p>
+                <input type="file" id="file-input" accept="image/*">
+            </div>
+            
+            <div class="preview-container" id="preview-container">
+                <img src="" alt="预览图" class="preview-image" id="preview-image">
+                <div class="file-info" id="file-info">
+                    文件名：<span id="file-name"></span><br>
+                    大小：<span id="file-size"></span><br>
+                    类型：<span id="file-type"></span>
+                </div>
+            </div>
+
+            <div class="error-message" id="error-message"></div>
+            
+            <div class="progress-container" id="progress-container">
+                <div class="progress-bar" id="progress-bar"></div>
+            </div>
+            
+            <div class="button-container">
+                <button class="btn btn-secondary" id="reset-btn">
+                    重置
+                </button>
+                <button class="btn btn-primary" id="detect-btn" disabled>
+                    开始检测
+                </button>
+            </div>
+        </section>
+        
+        <div class="loading" id="loading">
+            <div class="loading-spinner"></div>
+            <p>正在分析，请稍候...</p>
+        </div>
+        
+        <section class="card results-card" id="results-card">
+            <div class="card-title">
+                <span>检测结果</span>
+            </div>
+            
+            <div class="results-container" id="results-container">
+                <!-- 结果将在这里动态生成 -->
+            </div>
+            
+            <div class="result-visualize" id="result-visualize">
+                <h3>可视化结果</h3>
+                <img src="" alt="检测结果图" class="result-image" id="result-image" style="display: block;">
+                <video id="result-video" controls style="display: none; width: 100%; height: auto;"></video>
+            </div>
+        </section>
+    </main>
+
+    
+    <script src="../static/script.js"></script>
+    <canvas id="video-processor" style="display:none;"></canvas>
+</body>
+</html>
