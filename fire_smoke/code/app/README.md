@@ -19,7 +19,7 @@
 
 进入Anaconda的官网（https://www.anaconda.com/products/individual#macos），再根据自己的操作系统选择相应的选项下载软件。
 
-2.下载项目:https://github.com/ultralytics/ultralytics/tree/v8.0.50
+2.下载项目:[nmy/fire_smoke/code/app at master · n-m-y/nmy](https://github.com/n-m-y/nmy/tree/master/fire_smoke/code/app)
 
 3.解压
 
@@ -37,7 +37,7 @@ conda activate yolo_env
 
 6.用PyCharm打开项目，并设置python环境为上面的虚拟环境
 
-![ba89a3b6c2dd6af949a008b7689cc5f2](D:\桌面\ba89a3b6c2dd6af949a008b7689cc5f2.png)
+![1](https://github.com/n-m-y/nmy/raw/master/fire_smoke/img/1.png)
 
 ------
 
@@ -45,13 +45,13 @@ conda activate yolo_env
 
 1. 启动 FastAPI 后端
 
-   ![image-20250405224923560](C:\Users\牛\AppData\Roaming\Typora\typora-user-images\image-20250405224923560.png)
+   ![2](https://github.com/n-m-y/nmy/raw/master/fire_smoke/img/2.png)
 
    默认运行在 `http://127.0.0.1:5000/`。
 
 2. 访问前端页面
 
-   ![image-20250405225032133](C:\Users\牛\AppData\Roaming\Typora\typora-user-images\image-20250405225032133.png)
+   ![3](https://github.com/n-m-y/nmy/raw/master/fire_smoke/img/3.png)
 
 ------
 
@@ -92,10 +92,14 @@ app/
 
 使用YOLOv8已经训练好的`best.pt` 模型。
 
+![4](https://github.com/n-m-y/nmy/raw/master/fire_smoke/img/4.jpg)
+
+![5](https://github.com/n-m-y/nmy/raw/master/fire_smoke/img/5.jpg)
+
 ------
 
 ## ✅ 示例截图
 
-![image-20250405230342931](C:\Users\牛\AppData\Roaming\Typora\typora-user-images\image-20250405230342931.png)
+![6](https://github.com/n-m-y/nmy/raw/master/fire_smoke/img/6.png)
 
-![image-20250405230403527](C:\Users\牛\AppData\Roaming\Typora\typora-user-images\image-20250405230403527.png)
+![7](https://github.com/n-m-y/nmy/raw/master/fire_smoke/img/7.png)
