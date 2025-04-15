@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>火灾智能检测系统</title>
+    <link rel="stylesheet" href="../static/styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>火灾智能检测系统</h1>
+            <p class="subtitle">上传图片或视频，获取分析结果</p>
+        </div>
+    </header>
+
+    <main style="display: flex; flex-wrap: wrap; gap: 2rem;">
+        <!-- 左侧检测区域 -->
+        <div style="flex: 1; min-width: 400px;">
+            <div class="mode-switch">
+                <button class="mode-btn active" id="image-mode-btn">图片检测</button>
+                <button class="mode-btn" id="video-mode-btn">视频检测</button>
+            </div>
+            <section class="card">
+                <!-- 上传与预览区域，由 script.js 控制 -->
+                <div class="upload-area" id="upload-area">
+                    <p class="upload-text">点击或拖拽图片到此处上传</p>
+                    <p class="upload-subtext">支持 JPG、PNG、JPEG 格式，最大 10MB，图片必须完好无损</p>
+                    <input type="file" id="file-input" accept="image/*">
+
+                </div>
+                <div class="preview-container" id="preview-container">
+                    <img src="" alt="预览图" class="preview-image" id="preview-image">
+                    <div class="file-info" id="file-info">
+                        文件名：<span id="file-name"></span><br>
+                        大小：<span id="file-size"></span><br>
+                        类型：<span id="file-type"></span>
+                    </div>
+                </div>
+                <div class="error-message" id="error-message"></div>
+                <div class="progress-container" id="progress-container">
+                    <div class="progress-bar" id="progress-bar"></div>
+                </div>
+                <div class="button-container">
+                    <button class="btn btn-secondary" id="reset-btn">重置</button>
+                    <button class="btn btn-primary" id="detect-btn" disabled>开始检测</button>
+                </div>
+                
+            </section>
+            <div class="loading" id="loading">
+                <div class="loading-spinner"></div>
+                <p>正在分析，请稍候...</p>
+            </div>
+            <section class="card results-card" id="results-card">
+                <div class="card-title"><span>检测结果</span></div>
+                <div class="results-container" id="results-container"></div>
+                <div class="result-visualize" id="result-visualize">
+                    <h3>可视化结果</h3>
+                    <img src="" alt="检测结果图" class="result-image" id="result-image" style="display: block;">
+                    <video id="result-video" controls style="display: none; width: 100%; height: auto;"></video>
+                </div>
+            </section>
+        </div>
+
+
+        <!-- 问答模块的圆形按钮 -->
+        <div class="chat-button" id="chat-button">💬</div>
+
+        <!-- 问答模块的弹出窗口 -->
+        <div class="chat-window" id="chat-window">
+            <div class="chat-header">
+                <span>🔥 火灾知识问答</span>
+                <button class="view-history" id="view-history">查看历史记录</button>
+                <button class="close-chat" id="close-chat">×</button>
+            </div>
+            <div class="chat-body" id="chat-body">
+                <!-- 对话历史 -->
+            </div>
+            <div class="chat-input">
+                <input type="text" id="chat-input" placeholder="请输入您的问题...">
+                <button id="qa-voice">🎤</button>
+                <button id="chat-submit">提问</button>
+            </div>
+        </div>
+
+        <button class="sidebar-toggle" id="sidebar-toggle">📃</button>
+        <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h3>历史记录</h3>
+            <button class="close-sidebar" id="close-sidebar">×</button>
+        </div>
+        <div class="sidebar-content" id="sidebar-content">
+            <div class="pagination">
+            <button id="dprev-page" class="page-btn" disabled>上一页</button>
+            <span id="dpage-info">第 1 页 / 共 1 页</span>
+            <button id="dnext-page" class="page-btn" disabled>下一页</button>
+        </div>
+        </div>
+        </div>
+
+        <!-- 问答历史记录窗口 -->
+        <div class="qa-history-window" id="qa-history-window">
+        <div class="qa-history-header">
+            <span>问答历史记录</span>
+            <button class="close-qa-history" id="close-qa-history">×</button>
+        </div>
+        <div class="qa-history-content" id="qa-history-content">
+            <!-- 历史记录内容 -->
+        </div>
+        <div class="pagination">
+            <button id="prev-page" class="page-btn" disabled>上一页</button>
+            <span id="page-info">第 1 页 / 共 1 页</span>
+            <button id="next-page" class="page-btn" disabled>下一页</button>
+        </div>
+        </div>
+
+
+
+        <button class="b-toggle" id="left-sidebar-toggle">📈</button>
+        <!-- 登录界面 -->
+<div class="login-modal" id="login-modal">
+    <div class="login-content">
+        <h3>管理员权限验证</h3>
+        <input type="password" id="login-password" placeholder="请输入密码">
+        <button id="login-btn">登录</button>
+    </div>
+</div>
+
+<!-- 数据看板 -->
+<div class="left-sidebar" id="left-sidebar">
+    <div class="sidebar-header">
+        <h3>数据看板</h3>
+        <button class="close-sidebar" id="close-left-sidebar">×</button>
+    </div>
+    <div class="sidebar-content" id="bsidebar-content">
+        <div class="stats-container">
+            <div class="stat-card">
+                <div class="stat-title">总检测数</div>
+                <div class="stat-value" id="total-detections">0</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-title">当日检测数</div>
+                <div class="stat-value" id="today-detections">0</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-title">预警数</div>
+                <div class="stat-value" id="total-alerts">0</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-title">当日预警数</div>
+                <div class="stat-value" id="today-alerts">0</div>
+            </div>
+        </div>
+        <!-- 添加预警趋势图表 -->
+        <div class="chart-container">
+             <h3>预警趋势</h3>
+             <canvas id="warning-trend-chart"></canvas>
+        </div>
+    </div>
+</div>
+
+    </main>
+
+    <script src="../static/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
+</html>
