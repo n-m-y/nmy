@@ -47,7 +47,7 @@
 
 进入Anaconda的官网（https://www.anaconda.com/products/individual#macos），再根据自己的操作系统选择相应的选项下载软件。
 
-2.下载项目:[nmy/fire_smoke/code/app at master · n-m-y/nmy](https://github.com/n-m-y/nmy/tree/master/fire_smoke/code/app)/////////////////////
+2.下载项目:[nmy/fire_smoke/code/fun at master · n-m-y/nmy](https://github.com/n-m-y/nmy/tree/master/fire_smoke/code/fun)
 
 3.解压
 
@@ -62,7 +62,7 @@ conda activate yolo_env
 
 5.用PyCharm打开项目，并设置python环境为上面的虚拟环境
 
-![1](https://github.com/n-m-y/nmy/raw/master/fire_smoke/img/1.png)
+![1](https://raw.githubusercontent.com/n-m-y/nmy/master/fire_smoke/png/1.png)
 
 6.安装项目所需依赖
    pip install -r requirements.txt
@@ -71,19 +71,21 @@ conda activate yolo_env
 
 8.更改模型路径
 
+![2](https://raw.githubusercontent.com/n-m-y/nmy/master/fire_smoke/png/2.png)
+
 ------
 
 ## 🚀 运行项目
 
 1. 启动 FastAPI 后端
 
-   ![2](https://github.com/n-m-y/nmy/raw/master/fire_smoke/img/2.png)
+   ![3](https://raw.githubusercontent.com/n-m-y/nmy/master/fire_smoke/png/3.png)
 
    默认运行在http://127.0.0.1:5000/
 
 2. 访问前端页面
 
-   ![3](https://github.com/n-m-y/nmy/raw/master/fire_smoke/img/3.png)
+   ![4](https://raw.githubusercontent.com/n-m-y/nmy/master/fire_smoke/png/4.png)
    
    默认管理端密码**123456**
 
@@ -133,18 +135,34 @@ fun/
 
 **使用YOLOv8已经训练好的`best.pt` 模型。**
 
-![4](https://github.com/n-m-y/nmy/raw/master/fire_smoke/img/4.jpg)
+![5](https://raw.githubusercontent.com/n-m-y/nmy/master/fire_smoke/png/5.png)
 
-![5](https://github.com/n-m-y/nmy/raw/master/fire_smoke/img/5.jpg)
+![6](https://raw.githubusercontent.com/n-m-y/nmy/master/fire_smoke/png/6.png)
 
 **基于DeepSeek-R1的LoRA微调模型**
 
-
+![7](https://raw.githubusercontent.com/n-m-y/nmy/master/fire_smoke/png/7.png)
 
 ------
 
 ## ✅ 示例截图
 
-![6](https://github.com/n-m-y/nmy/raw/master/fire_smoke/img/6.png)
+![8](https://raw.githubusercontent.com/n-m-y/nmy/master/fire_smoke/png/8.png)
 
-![7](https://github.com/n-m-y/nmy/raw/master/fire_smoke/img/7.png)
+进行图片检测
+
+![9](https://raw.githubusercontent.com/n-m-y/nmy/master/fire_smoke/png/9.png)
+
+检测结果
+
+![10](https://raw.githubusercontent.com/n-m-y/nmy/master/fire_smoke/png/10.png)
+
+历史记录查询结果
+
+![11](https://raw.githubusercontent.com/n-m-y/nmy/master/fire_smoke/png/11.png)
+
+管理员权限登录
+
+![12](https://raw.githubusercontent.com/n-m-y/nmy/master/fire_smoke/png/12.png)
+
+数据看板内容
