@@ -93,7 +93,7 @@ conda activate yolo_env
 
 ## 📁 项目结构
 
-fun/
+```fun/
 ├── static/ 
 │    ├── results/ 
 │    ├── script.js/
@@ -108,6 +108,7 @@ fun/
 ├── openh264-1.8.0-win64.dll 
 ├── README.md
 └── requirements.txt
+```
 
 ------
 
